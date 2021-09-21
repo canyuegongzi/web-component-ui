@@ -1,0 +1,9 @@
+{
+  "watch": ["packages/web-ui/src"],
+  "ext": "ts",
+  "ignore": ["packages/web-ui/**/*.spec.ts"],
+  "env": {
+    "NODE_ENV": "development"
+  },
+  "exec": "cross-env NODE_ENV=production tsc -p tsconfig.build.json"
+}
