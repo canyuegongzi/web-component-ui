@@ -1,9 +1,10 @@
 import WuButton from "./button";
 import WuInput from "./input";
 import WuRadio from "./radio";
-console.log(3333);
+import WuIcon from './icon';
 export {
     WuButton,
     WuInput,
-    WuRadio
+    WuRadio,
+    WuIcon
 }
