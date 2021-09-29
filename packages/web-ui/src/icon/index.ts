@@ -84,7 +84,7 @@ export default class WuIcon extends HTMLElement {
         this.setAttribute('color', value);
     }
 
-    connectedCallback() {
+    private connectedCallback() {
         this.icon = this.shadowRoot?.getElementById('icon') as HTMLElement;
         this.use = this.icon.querySelector('use') as SVGUseElement;
         this.d = this.icon.querySelector('path') as SVGPathElement;
@@ -94,7 +94,7 @@ export default class WuIcon extends HTMLElement {
         this.path && (this.path = this.path);
     }
 
-    attributeChangedCallback (name: string, oldValue: string, newValue: string) {
+    private attributeChangedCallback (name: string, oldValue: string, newValue: string) {
         if( name == 'name' && this.use){
             this.use.setAttributeNS('http://www.w3.org/1999/xlink', 'xlink:href', `${SvgValue}#icon-${newValue}`);
         }
