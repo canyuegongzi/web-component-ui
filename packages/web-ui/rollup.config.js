@@ -1,10 +1,10 @@
 const typescript = require('@rollup/plugin-typescript');
 const json = require('@rollup/plugin-json');
 const replace = require('@rollup/plugin-replace');
-import {version} from './packages/web-ui/package.json';
+import {version} from './package.json';
 
 export default {
-    input: './packages/web-ui/src/index.ts',
+    input: './src/index.ts',
 
     plugins: [
         typescript({
@@ -20,7 +20,7 @@ export default {
     output: [{
         format: 'umd',
         name: 'webComponentUI',
-        file: `./packages/web-ui/dist/web-ui.umd.js`,
+        file: `./dist/web-ui.umd.js`,
         sourcemap: false,
     }]
 };

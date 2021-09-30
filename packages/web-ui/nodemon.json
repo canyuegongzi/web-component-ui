@@ -1,7 +1,7 @@
 {
-  "watch": ["packages/web-ui/src"],
+  "watch": ["./src"],
   "ext": "ts",
-  "ignore": ["packages/web-ui/**/*.spec.ts"],
+  "ignore": ["./src/**/*.spec.ts"],
   "env": {
     "NODE_ENV": "development"
   },
