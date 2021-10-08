@@ -3,13 +3,19 @@ export default class WuButton extends HTMLElement {
         super();
         const shadowRoot = this.attachShadow({ mode: 'open' });
         shadowRoot.innerHTML = `
-        <style>
-        :host{
-            box-sizing:border-box;
-            display:inline-block;
-        }
-        </style>
-        <div><input id="input" /><span>122233333</span></div>
+            <style>
+                :host{
+                    box-sizing:border-box;
+                    display:inline-block;
+                }
+                #inputContainer {
+                    background: var(--color-success);
+                }
+            </style>
+            <div class="input-container" id="inputContainer">
+                <input id="input" />
+                <span>122233333</span>
+            </div>
         `;
         this.input = shadowRoot.getElementById('input');
     }

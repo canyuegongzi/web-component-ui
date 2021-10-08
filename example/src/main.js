@@ -5,6 +5,8 @@ import store from "./store/index";
 import './service/http';
 import './style/index.css';
 import "@canyuegongzi/web-ui";
+import {initTheme} from "@canyuegongzi/web-ui";
+initTheme();
 
 Vue.config.productionTip = false;
 new Vue({

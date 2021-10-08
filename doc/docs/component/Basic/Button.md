@@ -1,7 +1,6 @@
-# 使用说明
+# Button
 
-t-cli 是一个通用的快速构建开发环境的脚手架工具。
-web端提供 webpack 基础版工程模板（js / ts）、vue2 + webpack(4 / 5)、react + webpack(4 / 5)；node 端默认提供基础版模板、nest工程级模板。
+按钮组件
 
 ## 前置条件
 

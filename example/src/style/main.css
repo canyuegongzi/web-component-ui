@@ -6,7 +6,7 @@ html, body, div, h1, h2, h3, h4, h5, h6, p, dl, dt, dd, ol, ul, li, fieldset, fo
 }
 
 html {
-    min-width: 1200px;
+    /*min-width: 1080px;*/
 }
 
 html, body {
