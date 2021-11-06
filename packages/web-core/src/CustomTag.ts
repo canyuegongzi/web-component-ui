@@ -1,0 +1,5 @@
+function CustomTag() {
+
+}
+
+export { CustomTag };

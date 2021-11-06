@@ -1,12 +1,5 @@
 {
   "compilerOptions": {
-    "noUnusedLocals": false,
-    "noUnusedParameters": false,
-    "noImplicitReturns": false,
-    "noFallthroughCasesInSwitch": false,
-    "allowSyntheticDefaultImports": false,
-    "experimentalDecorators": true,
-    "forceConsistentCasingInFileNames": true,
     // 不报告执行不到的代码错误。
     "allowUnreachableCode": true,
     "strictNullChecks": true,
@@ -16,7 +9,7 @@
     // import * as React from "react"
     "esModuleInterop": true,
     // 目标js的版本
-    "target": "es2015",
+    "target": "ES5",
     // 目标代码的模块结构版本
     // "module": "CommonJS",
     // 在表达式和声明上有隐含的 any类型时报错。
@@ -33,12 +26,11 @@
     // 目标文件所在路径
     "outDir": "./lib",
     // 编译过程中需要引入的库文件的列表
-    "lib": ["dom", "esnext", "dom.iterable"],
+    "lib": ["dom", "esnext"],
     // 额外支持解构/forof等功能
     "downlevelIteration": true,
     // 是否生成声明文件
-    "declaration": true,
-    "emitDeclarationOnly": true,
+    "declaration": false,
     // 声明文件路径
     // "declarationDir": "./lib",
     // 此处设置为node,才能解析import xx from 'xx'
@@ -46,15 +38,12 @@
     "baseUrl": ".",
     "rootDir": ".",
     "paths": {
-
-    },
-    "jsx": "react",
-     "jsxFactory": "h"
+      "any-event": ["packages/any-event/src"],
+      "any-touch": ["packages/any-touch/src"],
+      "@any-touch/*": ["packages/*/src"],
+      "@testUtils":["testUtils"]
+    }
   },
-  "include": [
-      "src/**/*.ts",
-      "src/**/*.tsx"
-  ],
   // 入口文件
-  // "include": ["testUtils","packages/*/src", "packages/*/types", "packages/*/__tests__"]
+  "include": ["testUtils","packages/*/src", "packages/*/types", "packages/*/__tests__"]
 }

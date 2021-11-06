@@ -1,0 +1,12 @@
+export declare function cssToDom(css: string): HTMLStyleElement;
+export declare function camelCase(str: string): string;
+export declare function Fragment(props: any): any;
+export declare function extend(obj: any, props: any): any;
+export declare function applyRef(ref: any, value: any): void;
+export declare const defer: typeof setTimeout | (<TResult1 = void, TResult2 = never>(onfulfilled?: ((value: void) => TResult1 | PromiseLike<TResult1>) | null | undefined, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | null | undefined) => Promise<TResult1 | TResult2>);
+export declare function isArray(obj: any): boolean;
+export declare function pathToArr(path: string): string[];
+export declare function hyphenate(str: string): string;
+export declare function capitalize(name: string): string;
+export declare function getValByPath(path: string, current: any): any;
+export declare function removeItem(item: any, arr: any): void;
