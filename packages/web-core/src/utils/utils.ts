@@ -24,37 +24,37 @@
         // ES2015-compatible construction (`super()` or `Reflect.construct`).
         window.customElements.hasOwnProperty('polyfillWrapFlushCallback')
     ) {
-        return
+        return;
     }
-    const BuiltInHTMLElement = HTMLElement
+    const BuiltInHTMLElement = HTMLElement;
     // @ts-ignore
     window.HTMLElement = function HTMLElement() {
-        return Reflect.construct(BuiltInHTMLElement, [], this.constructor)
-    }
-    HTMLElement.prototype = BuiltInHTMLElement.prototype
-    HTMLElement.prototype.constructor = HTMLElement
-    Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement)
-})()
+        return Reflect.construct(BuiltInHTMLElement, [], this.constructor);
+    };
+    HTMLElement.prototype = BuiltInHTMLElement.prototype;
+    HTMLElement.prototype.constructor = HTMLElement;
+    Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement);
+})();
 
 export function cssToDom(css: string) {
-    const node = document.createElement('style')
-    node.textContent = css
-    return node
+    const node = document.createElement('style');
+    node.textContent = css;
+    return node;
 }
 
 export function camelCase(str: string) {
     return str.replace(/-(\w)/g, ($, $1) => {
-        return $1.toUpperCase()
-    })
+        return $1.toUpperCase();
+    });
 }
 
 export function Fragment(props: any) {
-    return props.children
+    return props.children;
 }
 
 export function extend(obj: any, props: any) {
-    for (let i in props) obj[i] = props[i]
-    return obj
+    for (const i in props) obj[i] = props[i];
+    return obj;
 }
 
 /** Invoke or update a ref, depending on whether it is a function or object ref.
@@ -63,8 +63,8 @@ export function extend(obj: any, props: any) {
  */
 export function applyRef(ref: any, value: any) {
     if (ref != null) {
-        if (typeof ref == 'function') ref(value)
-        else ref.current = value
+        if (typeof ref == 'function') ref(value);
+        else ref.current = value;
     }
 }
 
@@ -77,48 +77,48 @@ export function applyRef(ref: any, value: any) {
 export const defer =
     typeof Promise == 'function'
         ? Promise.resolve().then.bind(Promise.resolve())
-        : setTimeout
+        : setTimeout;
 
 export function isArray(obj: any) {
-    return Object.prototype.toString.call(obj) === '[object Array]'
+    return Object.prototype.toString.call(obj) === '[object Array]';
 }
 
 export function pathToArr(path: string) {
-    if (typeof path !== 'string' || !path) return []
+    if (typeof path !== 'string' || !path) return [];
     // return path.split(/\.|\[|\]/).filter(name => !!name)
     return path
         .replace(/]/g, '')
         .replace(/\[/g, '.')
-        .split('.')
+        .split('.');
 }
 
-const hyphenateRE = /\B([A-Z])/g
+const hyphenateRE = /\B([A-Z])/g;
 export function hyphenate(str: string) {
-    return str.replace(hyphenateRE, '-$1').toLowerCase()
+    return str.replace(hyphenateRE, '-$1').toLowerCase();
 }
 
 export function capitalize(name: string) {
     return name
         .replace(/\-(\w)/g, function(all, letter) {
-            return letter.toUpperCase()
+            return letter.toUpperCase();
         })
-        .replace(/^\S/, (s: any) => s.toUpperCase())
+        .replace(/^\S/, (s: any) => s.toUpperCase());
 }
 
 export function getValByPath(path: string, current: any) {
-    const arr = pathToArr(path)
+    const arr = pathToArr(path);
     arr.forEach(prop => {
-        current = current[prop]
-    })
-    return current
+        current = current[prop];
+    });
+    return current;
 }
 
 export function removeItem(item: any, arr: any) {
-    if (!arr) return
+    if (!arr) return;
     for (let i = 0, len = arr.length; i < len; i++) {
         if (arr[i] === item) {
-            arr.splice(i, 1)
-            break
+            arr.splice(i, 1);
+            break;
         }
     }
 }

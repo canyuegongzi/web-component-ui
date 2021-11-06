@@ -1,5 +1,5 @@
-import { resolve } from 'path'
-import { defineConfig } from 'vite'
+import { resolve } from 'path';
+import { defineConfig } from 'vite';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -8,11 +8,11 @@ export default defineConfig({
       // entry: resolve(__dirname, 'src/vitedemo.tsx'),
       entry: resolve(__dirname, 'src/index.ts'),
       name: 'index',
-      formats: ['es'],
+      formats: [ 'es' ],
       fileName: (format) => `index.${format}.js`
     },
     rollupOptions: {
-      external: ['@canyuegongzi/web-core'],
+      external: [ '@canyuegongzi/web-core' ],
       /*input: {
         main: resolve(__dirname, 'index.html'),
         admin: resolve(__dirname, 'demo.html')
@@ -23,4 +23,4 @@ export default defineConfig({
     jsxFactory: 'h',
     jsxFragment: 'h.f'
   }
-})
+});

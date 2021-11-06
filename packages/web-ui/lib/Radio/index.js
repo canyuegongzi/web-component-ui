@@ -1,4 +1,4 @@
-import { h, CustomWebComponent } from '@canyuegongzi/web-core';
+import { h, CustomTag, CustomWebComponent } from '@canyuegongzi/web-core';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -29,13 +29,40 @@ function __extends(d, b) {
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 }
 
+function __decorate(decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+}
 
-var css = `.container {
+
+var css = `@charset "UTF-8";
+/**********************系统级别配置*******************************/
+/**********************基本颜色***************************/
+/* Transition
+-------------------------- */
+/* Color
+-------------------------- */
+/* 53a8ff */
+/* 66b1ff */
+/* 79bbff */
+/* 8cc5ff */
+/* a0cfff */
+/* b3d8ff */
+/* c6e2ff */
+/* d9ecff */
+/* ecf5ff */
+/**********************基本边框***************************/
+/**********************盒模型阴影*************************/
+/**********************基本字体*************************/
+/**********************Button***************************/
+.container {
   font-weight: bold;
+  color: #67C23A !important;
 }`
 
 
-console.log(css);
 var WuRadio = (function (_super) {
     __extends(WuRadio, _super);
     function WuRadio() {
@@ -45,7 +72,7 @@ var WuRadio = (function (_super) {
     }
     WuRadio.prototype.render = function () {
         return (h("div", { class: "container" },
-            h("div", { style: { color: 'red' } }, "\u6D4B\u8BD5dom"),
+            h("div", { style: { fontSize: '18px' } }, "\u6D4B\u8BD5dom"),
             h("button", null)));
     };
     WuRadio.css = undefined ? undefined : css;
@@ -74,10 +101,10 @@ var WuRadio = (function (_super) {
         text: String,
         options: Object
     };
+    WuRadio = __decorate([
+        CustomTag({ name: 'wu-radio' })
+    ], WuRadio);
     return WuRadio;
 }(CustomWebComponent));
-if (!customElements.get('wu-radio')) {
-    customElements.define('wu-radio', WuRadio);
-}
 
 export { WuRadio as default };

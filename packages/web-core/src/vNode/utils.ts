@@ -9,14 +9,14 @@ import options from "../webOptions";
  */
 export function isSameNodeType(node: any, vnode: any, hydrating: boolean) {
     if (typeof vnode === 'string' || typeof vnode === 'number') {
-        return node.splitText !== undefined
+        return node.splitText !== undefined;
     }
     if (typeof vnode.nodeName === 'string') {
-        return !node._componentConstructor && isNamedNode(node, vnode.nodeName)
+        return !node._componentConstructor && isNamedNode(node, vnode.nodeName);
     } else if (typeof vnode.nodeName === 'function') {
-        return (options as any).mapping[node.nodeName.toLowerCase()] === vnode.nodeName
+        return (options as any).mapping[node.nodeName.toLowerCase()] === vnode.nodeName;
     }
-    return hydrating || node._componentConstructor === vnode.nodeName
+    return hydrating || node._componentConstructor === vnode.nodeName;
 }
 
 /**
@@ -26,5 +26,5 @@ export function isSameNodeType(node: any, vnode: any, hydrating: boolean) {
  * @param {String} nodeName  Unnormalized name to compare against.
  */
 export function isNamedNode(node: any, nodeName: string) {
-    return node.normalizedNodeName === nodeName || node.nodeName.toLowerCase() === nodeName.toLowerCase()
+    return node.normalizedNodeName === nodeName || node.nodeName.toLowerCase() === nodeName.toLowerCase();
 }

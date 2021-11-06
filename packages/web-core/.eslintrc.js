@@ -3,7 +3,7 @@ module.exports = {
   parserOptions: {
     sourceType: 'module',
   },
-  plugins: ['@typescript-eslint/eslint-plugin'],
+  plugins: [ '@typescript-eslint/eslint-plugin' ],
   extends: [
     'plugin:@typescript-eslint/eslint-recommended',
     'plugin:@typescript-eslint/recommended',
@@ -26,5 +26,9 @@ module.exports = {
     '@typescript-eslint/no-empty-function': 'off',
     'prefer-rest-params': 'off',
     '@typescript-eslint/no-this-alias': 'off',
+    'semi':[ 'error','always' ],
+    'prefer-spread': 'off',
+    "array-bracket-spacing": [ "error","always" ],
+    "object-curly-spacing": [ "error","always" ]
   },
 };

@@ -1,19 +1,30 @@
-<script setup lang="ts">
+<script lang="ts">
 import "@canyuegongzi/web-ui/src/packages";
+import ButtonView from "./components/ButtonView.vue"
+import { defineComponent, ref } from "vue";
+import RadioView from "./components/RadioView.vue";
+export default defineComponent({
+  components: {
+    ButtonView,
+    RadioView
+  },
+  setup(){
+    const sonRef = ref(null);
+    const handleClick = () => {
+      sonRef.value.song();
+    }
+    return { sonRef, handleClick, }
+  }
+})
 </script>
 
 <template>
-  <wu-test></wu-test>
-  <wu-radio size="12" options="{a: 23}"></wu-radio>
-</template>
+  <div style="width: 50%">
+    <ButtonView />
+    <RadioView />
+  </div>
 
+</template>
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>

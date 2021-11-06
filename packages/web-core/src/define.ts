@@ -1,5 +1,0 @@
-function define() {
-
-}
-
-export { define };

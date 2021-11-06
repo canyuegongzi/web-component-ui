@@ -1,5 +1,6 @@
 {
   "compilerOptions": {
+    "experimentalDecorators": true,
     "module": "esnext",
     "resolveJsonModule": true,
     // 不报告执行不到的代码错误。

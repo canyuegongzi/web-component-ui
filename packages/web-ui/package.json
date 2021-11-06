@@ -19,9 +19,6 @@
         "package:start:dev": "nodemon",
         "start:debug": "nodemon --config nodemon-debug.json",
         "build:tsc": "cross-env NODE_ENV=production tsc -p tsconfig.build1.json",
-        "start": "yarn watch & vite",
-        "dev": "yarn start",
-        "build": "vite build",
         "build:package": "rollup -c ./build/rollup.config.js && node ./build/rollup.config.end.js",
         "build:package:end": "node ./build/rollup.config.end.js",
         "build:package:dts": "rollup -c ./build/rollup.config.dts.js"

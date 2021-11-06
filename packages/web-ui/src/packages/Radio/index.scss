@@ -1,4 +1,6 @@
 @use "sass:map";
+@import '../theme/common/var.scss';
 .container {
     font-weight: bold;
+    color: $--color-success !important;
 }

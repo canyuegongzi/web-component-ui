@@ -1,6 +1,7 @@
-import {CustomWebComponent, h} from "@canyuegongzi/web-core";
+import { CustomWebComponent, h, CustomTag } from "@canyuegongzi/web-core";
 import * as css from './index.scss';
 
+@CustomTag({ name: 'wu-radio' })
 export default class WuRadio extends CustomWebComponent{
     static css = css.default ? css.default : css
     static defaultProps = {
@@ -37,13 +38,8 @@ export default class WuRadio extends CustomWebComponent{
     public render() {
         return (
             <div class="container">
-                <div style={{color: 'red'}}>测试dom</div>
-                <button/>
+                单选框
             </div>
-        )
+        );
     }
-}
-
-if(!customElements.get('wu-radio')){
-    customElements.define('wu-radio', WuRadio);
 }

@@ -1,5 +1,0 @@
-function CustomTag() {
-
-}
-
-export { CustomTag };

@@ -5,12 +5,12 @@ function getGlobal() {
                 // @ts-ignore
                 return this;
             })()
-        )
+        );
     }
-    return global
+    return global;
 }
 export default {
     store: null,
     root: getGlobal(),
-    mapping: {}
-}
+    mapping: {} as any
+};

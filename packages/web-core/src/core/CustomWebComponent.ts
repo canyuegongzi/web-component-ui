@@ -1,32 +1,35 @@
-import {diff} from "./vNode/diff";
-import {capitalize, cssToDom, hyphenate, isArray} from "./utils/utils";
+import { diff } from "../vNode/diff";
+import { capitalize, cssToDom, hyphenate, isArray } from "../utils/utils";
 
 export class CustomWebComponent  extends HTMLElement {
-    private computed: any =  {};
 
-    private isInstalled: boolean;
+    static is = 'CustomWebComponent'
 
-    private elementId = 0;
+    public computed: any =  {};
 
-    private readonly props: any;
+    public isInstalled: boolean;
 
-    private rootNode: any;
+    public elementId = 0;
 
-    private store: any;
+    public readonly props: any;
 
-    private _customStyleElement: HTMLStyleElement | any = null;
+    public rootNode: any;
 
-    private _customStyleContent: any = null;
+    public store: any;
 
-    private _willUpdate = false;
+    public _customStyleElement: HTMLStyleElement | any = null;
 
-    private prevProps: any;
+    public _customStyleContent: any = null;
+
+    public _willUpdate = false;
+
+    public prevProps: any;
 
     constructor() {
-        super()
-        this.props = Object.assign({}, (this.constructor as any).defaultProps, this.props)
-        this.computed = {}
-        this.isInstalled = false
+        super();
+        this.props = Object.assign({}, (this.constructor as any).defaultProps, this.props);
+        this.computed = {};
+        this.isInstalled = false;
     }
 
     /***
@@ -40,29 +43,29 @@ export class CustomWebComponent  extends HTMLElement {
         const rendered = (this as any).render(this.props);
         this.rootNode = diff(null, rendered, null, this);
         if (that.css) {
-            shadowRoot.appendChild(cssToDom(typeof that.css === 'function' ? that.css() : that.css))
+            shadowRoot.appendChild(cssToDom(typeof that.css === 'function' ? that.css() : that.css));
         }
         if (this.props.css) {
-            this._customStyleElement = cssToDom(this.props.css)
-            this._customStyleContent = this.props.css
-            shadowRoot.appendChild(this._customStyleElement)
+            this._customStyleElement = cssToDom(this.props.css);
+            this._customStyleContent = this.props.css;
+            shadowRoot.appendChild(this._customStyleElement);
         }
         if (isArray(this.rootNode)) {
             this.rootNode.forEach(function(item: HTMLElement) {
-                shadowRoot.appendChild(item)
-            })
+                shadowRoot.appendChild(item);
+            });
         } else {
-            this.rootNode && shadowRoot.appendChild(this.rootNode)
+            this.rootNode && shadowRoot.appendChild(this.rootNode);
         }
-        this.isInstalled = true
+        this.isInstalled = true;
     }
 
     /**
      * 组件销毁
      */
     public disconnectedCallback() {
-        this.uninstall()
-        this.isInstalled = false
+        this.uninstall();
+        this.isInstalled = false;
     }
 
     /**
@@ -70,7 +73,7 @@ export class CustomWebComponent  extends HTMLElement {
      * @param key
      */
     public removeAttribute(key: string) {
-        super.removeAttribute(key)
+        super.removeAttribute(key);
         //Avoid executing removeAttribute methods before connectedCallback
         this.isInstalled && this.update();
     }
@@ -82,9 +85,9 @@ export class CustomWebComponent  extends HTMLElement {
      */
     public setAttribute(key: string, val: any) {
         if (val && typeof val === 'object') {
-            super.setAttribute(key, JSON.stringify(val))
+            super.setAttribute(key, JSON.stringify(val));
         } else {
-            super.setAttribute(key, val)
+            super.setAttribute(key, val);
         }
         //Avoid executing setAttribute methods before connectedCallback
         this.isInstalled && this.update();
@@ -95,7 +98,7 @@ export class CustomWebComponent  extends HTMLElement {
      * @param ignoreAttrs
      * @private
      */
-    private attrsToProps(ignoreAttrs?: any[]) {
+    public attrsToProps(ignoreAttrs?: any[]) {
         if (ignoreAttrs || (this.store && this.store.ignoreAttrs) || this.props.ignoreAttrs) return;
         const ele: any = this;
         ele.props['css'] = ele.getAttribute('css');
@@ -126,8 +129,8 @@ export class CustomWebComponent  extends HTMLElement {
                             val.replace(/(['"])?([a-zA-Z0-9_-]+)(['"])?:([^\/])/g, '"$2":$4')
                                .replace(/'([\s\S]*?)'/g, '"$1"')
                                .replace(/,(\s*})/g, '$1')
-                        )
-                        break
+                        );
+                        break;
                 }
             } else {
                 if (
@@ -146,18 +149,18 @@ export class CustomWebComponent  extends HTMLElement {
      * 初始化影子dom
      * @private
      */
-    private initShadowRoot() {
-        let shadowRoot: ShadowRoot | any
+    public initShadowRoot() {
+        let shadowRoot: ShadowRoot | any;
         if ((this.constructor as any).isLightDom) {
-            shadowRoot = this
+            shadowRoot = this;
         } else {
             if (!this.shadowRoot) {
-                shadowRoot = this.attachShadow({ mode: 'open' })
+                shadowRoot = this.attachShadow({ mode: 'open' });
             } else {
-                shadowRoot = this.shadowRoot
-                let fc
+                shadowRoot = this.shadowRoot;
+                let fc;
                 while ((fc = shadowRoot.firstChild)) {
-                    shadowRoot.removeChild(fc)
+                    shadowRoot.removeChild(fc);
                 }
             }
         }
@@ -168,7 +171,7 @@ export class CustomWebComponent  extends HTMLElement {
      * 初始化样式
      * @private
      */
-    private initCssStyle(shadowRoot: ShadowRoot | any) {
+    public initCssStyle(shadowRoot: ShadowRoot | any) {
         const elClass: any = this.constructor as any;
         if (elClass.elementStyles) {
             shadowRoot.adoptedStyleSheets = elClass.elementStyles;
@@ -176,27 +179,27 @@ export class CustomWebComponent  extends HTMLElement {
             const css = elClass.css;
             if (css) {
                 if (typeof css === 'string') {
-                    const styleSheet: CSSStyleSheet = new CSSStyleSheet()
+                    const styleSheet: CSSStyleSheet = new CSSStyleSheet();
                     // @ts-ignore
-                    styleSheet.replaceSync(css)
-                    shadowRoot.adoptedStyleSheets = [styleSheet]
+                    styleSheet.replaceSync(css);
+                    shadowRoot.adoptedStyleSheets = [ styleSheet ];
                 } else if (Object.prototype.toString.call(css) === '[object Array]') {
-                    const styleSheets: CSSStyleSheet[] = []
+                    const styleSheets: CSSStyleSheet[] = [];
                     css.forEach((styleSheet: CSSStyleSheet) => {
                         if (typeof styleSheet === 'string') {
                             const adoptedStyleSheet = new CSSStyleSheet();
                             // @ts-ignore
-                            adoptedStyleSheet.replaceSync(styleSheet)
-                            styleSheets.push(adoptedStyleSheet)
+                            adoptedStyleSheet.replaceSync(styleSheet);
+                            styleSheets.push(adoptedStyleSheet);
                         } else {
-                            styleSheets.push(styleSheet)
+                            styleSheets.push(styleSheet);
                         }
-                        shadowRoot.adoptedStyleSheets = styleSheets
-                    })
+                        shadowRoot.adoptedStyleSheets = styleSheets;
+                    });
                 } else {
-                    shadowRoot.adoptedStyleSheets = [css]
+                    shadowRoot.adoptedStyleSheets = [ css ];
                 }
-                elClass.elementStyles = shadowRoot.adoptedStyleSheets
+                elClass.elementStyles = shadowRoot.adoptedStyleSheets;
             }
         }
         return shadowRoot;
@@ -206,7 +209,7 @@ export class CustomWebComponent  extends HTMLElement {
      * 组件属性更新前
      * @private
      */
-    private beforeUpdate() {}
+    public beforeUpdate() {}
 
     /**
      * 组件更新
@@ -214,36 +217,36 @@ export class CustomWebComponent  extends HTMLElement {
      * @param updateSelf
      * @private
      */
-    private update(ignoreAttrs?: any, updateSelf?: any) {
+    public update(ignoreAttrs?: any, updateSelf?: any) {
         const that: any = this;
-        this._willUpdate = true
-        this.beforeUpdate()
-        this.beforeRender()
+        this._willUpdate = true;
+        this.beforeUpdate();
+        this.beforeRender();
         if (this._customStyleContent != this.props.css) {
-            this._customStyleContent = this.props.css
-            this._customStyleElement.textContent = this._customStyleContent
+            this._customStyleContent = this.props.css;
+            this._customStyleElement.textContent = this._customStyleContent;
         }
         this.attrsToProps(ignoreAttrs);
         // 属性变化，重新执行render 渲染， 走diff，生成新的dom
-        const rendered = that.render(this.props, this.store)
-        this.rendered()
+        const rendered = that.render(this.props, this.store);
+        this.rendered();
         this.rootNode = diff(
             this.rootNode,
             rendered,
             (this.constructor as any).isLightDom ? this : this.shadowRoot,
             this,
             updateSelf
-        )
-        this._willUpdate = false
-        this.updated()
+        );
+        this._willUpdate = false;
+        this.updated();
     }
 
     /**
      * 强制更新
      * @private
      */
-    private forceUpdate() {
-        this.update(true)
+    public forceUpdate() {
+        this.update(true);
     }
 
     /**
@@ -251,14 +254,14 @@ export class CustomWebComponent  extends HTMLElement {
      * @param obj
      * @private
      */
-    private updateProps(obj: any) {
+    public updateProps(obj: any) {
         Object.keys(obj).forEach(key => {
-            this.props[key] = obj[key]
+            this.props[key] = obj[key];
             if (this.prevProps) {
-                this.prevProps[key] = obj[key]
+                this.prevProps[key] = obj[key];
             }
-        })
-        this.forceUpdate()
+        });
+        this.forceUpdate();
     }
 
     /**
@@ -266,40 +269,40 @@ export class CustomWebComponent  extends HTMLElement {
      * @param ignoreAttrs
      * @private
      */
-    private updateSelf(ignoreAttrs: any) {
-        this.update(ignoreAttrs, true)
+    public updateSelf(ignoreAttrs: any) {
+        this.update(ignoreAttrs, true);
     }
 
     /**
      * 组件属性更新完成
      * @private
      */
-    private updated() {}
+    public updated() {}
 
     /**
      * 渲染前
      * @private
      */
-    private beforeRender() {}
+    public beforeRender() {}
 
     /**
      * 渲染完成
      * @private
      */
-    private rendered() {}
+    public rendered() {}
 
     /**
      * 属性接受
      * @private
      */
-    private receiveProps() {}
+    public receiveProps() {}
 
     /**
      * 优化属性更新
      * @param key
      */
     public pureRemoveAttribute(key: string) {
-        super.removeAttribute(key)
+        super.removeAttribute(key);
     }
 
     /**
@@ -308,7 +311,7 @@ export class CustomWebComponent  extends HTMLElement {
      * @param val
      */
     public pureSetAttribute(key: string, val: string) {
-        super.setAttribute(key, val)
+        super.setAttribute(key, val);
     }
 
     /**
@@ -317,20 +320,20 @@ export class CustomWebComponent  extends HTMLElement {
      * @param data
      * @private
      */
-    private fire(name: string, data: any) {
-        const handler = this.props[`on${capitalize(name)}`]
+    public fire(name: string, data: any) {
+        const handler = this.props[`on${capitalize(name)}`];
         if (handler) {
             handler(
                 new CustomEvent(name, {
                     detail: data
                 })
-            )
+            );
         } else {
             this.dispatchEvent(
                 new CustomEvent(name, {
                     detail: data
                 })
-            )
+            );
         }
     }
 
@@ -338,7 +341,7 @@ export class CustomWebComponent  extends HTMLElement {
      * 组件卸载
      * @private
      */
-    private uninstall() {
+    public uninstall() {
 
     }
 }
