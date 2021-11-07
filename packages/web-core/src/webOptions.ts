@@ -9,6 +9,10 @@ function getGlobal() {
     }
     return global;
 }
+
+export const WebUiConfig = {
+    size: "mini",
+};
 export default {
     store: null,
     root: getGlobal(),

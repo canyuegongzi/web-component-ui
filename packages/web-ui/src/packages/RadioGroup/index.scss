@@ -1,0 +1,12 @@
+@use "sass:map";
+@import '../theme/common/var.scss';
+@import '../theme/common/mixin.scss';
+:host {
+    display: inline-block;
+}
+@include b(radio-group) {
+    display: inline-block;
+    line-height: 1;
+    vertical-align: middle;
+    font-size: 0;
+}

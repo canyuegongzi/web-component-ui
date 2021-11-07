@@ -1,13 +1,16 @@
 import WuRadio from "./Radio";
-import WuTest from "./Test";
 import WuButton from "./Button";
+import WuRadioGroup from "./RadioGroup";
+import WuRadioButton from "./RadioButton";
 export {
     WuRadio,
-    WuTest,
+    WuRadioGroup,
+    WuRadioButton,
     WuButton
 };
 export default {
     WuRadio,
-    WuTest,
+    WuRadioGroup,
+    WuRadioButton,
     WuButton
 };

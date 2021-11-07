@@ -19,7 +19,7 @@ export default defineComponent({
 </script>
 
 <template>
-  <div style="width: 50%">
+  <div style="width: 70%">
     <ButtonView />
     <RadioView />
   </div>

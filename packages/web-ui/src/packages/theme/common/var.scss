@@ -33,6 +33,11 @@ $--background-color-base: #F5F7FA;
 $--link-color: $--color-primary;
 $--link-hover-color: $--color-primary;
 
+/* Disable base
+-------------------------- */
+$--disabled-fill-base: $--background-color-base !default;
+$--disabled-color-base: $--color-text-placeholder !default;
+$--disabled-border-base: $--border-color-light !default;
 /* Transition
 -------------------------- */
 $--all-transition: all .3s cubic-bezier(.645,.045,.355,1) !default;
@@ -206,3 +211,66 @@ $--button-info-background-color: $--color-info !default;
 
 $--button-hover-tint-percent: 20% !default;
 $--button-active-shade-percent: 10% !default;
+
+/**************************Radio****************************/
+/// fontSize||Font|1
+$--radio-font-size: $--font-size-base !default;
+/// fontWeight||Font|1
+$--radio-font-weight: $--font-weight-primary !default;
+/// color||Color|0
+$--radio-font-color: $--color-text-regular !default;
+$--radio-input-height: 14px !default;
+$--radio-input-width: 14px !default;
+/// borderRadius||Border|2
+$--radio-input-border-radius: $--border-radius-circle !default;
+/// color||Color|0
+$--radio-input-background-color: $--color-white !default;
+$--radio-input-border: $--border-base !default;
+/// color||Color|0
+$--radio-input-border-color: $--border-color-base !default;
+/// color||Color|0
+$--radio-icon-color: $--color-white !default;
+
+$--radio-disabled-input-border-color: $--disabled-border-base !default;
+$--radio-disabled-input-fill: $--disabled-fill-base !default;
+$--radio-disabled-icon-color: $--disabled-fill-base !default;
+
+$--radio-disabled-checked-input-border-color: $--disabled-border-base !default;
+$--radio-disabled-checked-input-fill: $--disabled-fill-base !default;
+$--radio-disabled-checked-icon-color: $--color-text-placeholder !default;
+
+/// color||Color|0
+$--radio-checked-font-color: $--color-primary !default;
+/// color||Color|0
+$--radio-checked-input-border-color: $--color-primary !default;
+/// color||Color|0
+$--radio-checked-input-background-color: $--color-white !default;
+/// color||Color|0
+$--radio-checked-icon-color: $--color-primary !default;
+
+$--radio-input-border-color-hover: $--color-primary !default;
+
+$--radio-bordered-height: 40px !default;
+$--radio-bordered-padding: 12px 20px 0 10px !default;
+$--radio-bordered-medium-padding: 10px 20px 0 10px !default;
+$--radio-bordered-small-padding: 8px 15px 0 10px !default;
+$--radio-bordered-mini-padding: 6px 15px 0 10px !default;
+$--radio-bordered-medium-input-height: 14px !default;
+$--radio-bordered-medium-input-width: 14px !default;
+$--radio-bordered-medium-height: 36px !default;
+$--radio-bordered-small-input-height: 12px !default;
+$--radio-bordered-small-input-width: 12px !default;
+$--radio-bordered-small-height: 32px !default;
+$--radio-bordered-mini-input-height: 12px !default;
+$--radio-bordered-mini-input-width: 12px !default;
+$--radio-bordered-mini-height: 28px !default;
+
+/// fontSize||Font|1
+$--radio-button-font-size: $--font-size-base !default;
+/// color||Color|0
+$--radio-button-checked-background-color: $--color-primary !default;
+/// color||Color|0
+$--radio-button-checked-font-color: $--color-white !default;
+/// color||Color|0
+$--radio-button-checked-border-color: $--color-primary !default;
+$--radio-button-disabled-checked-fill: $--border-color-extra-light !default;

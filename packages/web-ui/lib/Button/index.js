@@ -1,4 +1,4 @@
-import { h, extractClass, CustomTag, CustomWebComponent } from '@canyuegongzi/web-core';
+import { h, extractClass, WebUiConfig, CustomTag, CustomWebComponent } from '@canyuegongzi/web-core';
 
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
@@ -51,6 +51,8 @@ function __decorate(decorators, target, key, desc) {
 var css = `@charset "UTF-8";
 /**********************系统级别配置*******************************/
 /**********************基本颜色***************************/
+/* Disable base
+-------------------------- */
 /* Transition
 -------------------------- */
 /* Color
@@ -68,6 +70,9 @@ var css = `@charset "UTF-8";
 /**********************盒模型阴影*************************/
 /**********************基本字体*************************/
 /**********************Button***************************/
+/**************************Radio****************************/
+/* BEM support Func
+ -------------------------- */
 :host {
   display: inline-block;
 }
@@ -474,15 +479,40 @@ var css = `@charset "UTF-8";
 }
 .wu-button-text.is-disabled, .wu-button-text.is-disabled:hover, .wu-button-text.is-disabled:focus {
   border-color: transparent;
+}
+
+.loading {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  animation: loading 1s steps(12, end) infinite;
+  vertical-align: -0.125em;
+}
+
+@-webkit-keyframes loading {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
+}
+@keyframes loading {
+  0% {
+    transform: rotate3d(0, 0, 1, 0deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 1, 360deg);
+  }
 }`
 
 
-var WuRadio = (function (_super) {
-    __extends(WuRadio, _super);
-    function WuRadio() {
+var WuButton = (function (_super) {
+    __extends(WuButton, _super);
+    function WuButton() {
         return _super.call(this) || this;
     }
-    WuRadio.prototype.render = function (props) {
+    WuButton.prototype.render = function (props) {
         var _a;
         return (h("button", __assign({ disabled: props.disabled }, extractClass(props, 'wu-button', (_a = {},
             _a['wu-button-' + props.type] = props.type,
@@ -491,7 +521,6 @@ var WuRadio = (function (_super) {
             _a['is-round'] = props.round,
             _a['is-circle'] = props.circle,
             _a['is-disabled'] = props.disabled,
-            _a['is-block'] = props.block,
             _a)), { type: props.nativeType }),
             props.loading && [
                 h("svg", { class: "loading", viewBox: "0 0 1024 1024", focusable: "false", "data-icon": "loading", width: "1em", height: "1em", fill: "currentColor", "aria-hidden": "true" },
@@ -501,18 +530,17 @@ var WuRadio = (function (_super) {
             props.text,
             h("slot", null)));
     };
-    WuRadio.css = undefined ? undefined : css;
-    WuRadio.defaultProps = {
+    WuButton.css = undefined ? undefined : css;
+    WuButton.defaultProps = {
+        size: WebUiConfig.size,
         plain: false,
         round: false,
         circle: false,
         loading: false,
         disabled: false,
-        autofocus: false,
-        nativeType: 'button',
-        block: false,
+        nativeType: 'button'
     };
-    WuRadio.propTypes = {
+    WuButton.propTypes = {
         size: String,
         type: String,
         plain: Boolean,
@@ -521,15 +549,13 @@ var WuRadio = (function (_super) {
         loading: Boolean,
         disabled: Boolean,
         icon: String,
-        autofocus: Boolean,
         nativeType: String,
-        block: Boolean,
         text: String,
     };
-    WuRadio = __decorate([
+    WuButton = __decorate([
         CustomTag({ name: 'wu-button' })
-    ], WuRadio);
-    return WuRadio;
+    ], WuButton);
+    return WuButton;
 }(CustomWebComponent));
 
-export { WuRadio as default };
+export { WuButton as default };

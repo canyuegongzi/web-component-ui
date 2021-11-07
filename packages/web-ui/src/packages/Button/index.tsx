@@ -1,8 +1,8 @@
-import { CustomWebComponent, h, CustomTag, extractClass } from "@canyuegongzi/web-core";
+import { CustomWebComponent, h, CustomTag, extractClass, WebUiConfig, UISize } from "@canyuegongzi/web-core";
 import * as css from './index.scss';
 
 interface Props {
-    size?: 'medium' | 'small' | 'mini'
+    size?: UISize
     type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text'
     plain?: boolean
     round?: boolean
@@ -14,9 +14,10 @@ interface Props {
     text?: string
 }
 @CustomTag({ name: 'wu-button' })
-export default class WuRadio extends CustomWebComponent{
+export default class WuButton extends CustomWebComponent{
     static css = css.default ? css.default : css
     static defaultProps = {
+        size: WebUiConfig.size,
         plain: false,
         round: false,
         circle: false,

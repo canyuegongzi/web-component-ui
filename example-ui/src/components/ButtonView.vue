@@ -19,7 +19,7 @@ export default {
 
 <template>
   <div style="width: 100%">
-      <p>Button</p>
+      <h3>Button</h3>
       <div style="display: flex;justify-content: space-between; align-items: center; padding: 16px">
         <wu-button type="success" size="small">small</wu-button>
         <wu-button type="success" size="mini">mini</wu-button>

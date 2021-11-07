@@ -11,8 +11,8 @@ interface Props {
     name?: string;
     border?: boolean;
 }
-@CustomTag({ name: 'wu-radio' })
-export default class WuRadio extends CustomWebComponent {
+@CustomTag({ name: 'wu-radio-button' })
+export default class WuRadioButton extends CustomWebComponent {
     static css = css.default ? css.default : css
 
     static propTypes = {
@@ -58,25 +58,22 @@ export default class WuRadio extends CustomWebComponent {
 
 
     public installed() {
-        this.fire('mounted', { value: false });
+        this.fire('mounted', {});
     }
 
     public render(props: Props) {
         return (
-            <label role="radio" tabindex="0" onClick={debounce(this.clickHandler, 0)} {...extractClass(props, 'wu-radio', {
-                ['wu-radio-' + props.size]: props.size,
+            <label role="radio" tabindex="0" onClick={debounce(this.clickHandler, 0)} {...extractClass(props, 'wu-radio-button', {
+                ['wu-radio-button-' + props.size]: props.size,
                 'is-disabled': props.disabled,
                 'is-border': props.border,
-                'is-checked': props.checked
+                'is-checked': props.checked,
+                'is-active': props.checked,
             })} aria-checked={props.checked}>
-                <span {...extractClass(props, 'wu-radio_input', {
-                    'is-disabled': props.disabled,
-                    'is-checked': props.checked
-                })}>
-                    <span class="wu-radio_inner" />
-                    <input type="radio" aria-hidden="true" {...extract(props, [ 'checked', 'value', 'disabled' ])} tabindex="-1" class="wu-radio_original" />
+                <input type="radio" aria-hidden="true" {...extract(props, [ 'checked', 'value', 'disabled' ])} tabindex="-1" class="wu-radio-button_orig-radio" />
+                <span class="wu-radio-button_inner">
+                    {props.label}<slot/>
                 </span>
-                <span class="wu-radio_label">{props.label}<slot/></span>
             </label>
         );
     }

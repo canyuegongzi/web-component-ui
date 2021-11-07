@@ -38,10 +38,14 @@ export class CustomWebComponent  extends HTMLElement {
     public connectedCallback() {
         const that: any = this;
         this.attrsToProps();
+        this.beforeInstall();
+        this.install();
+        this.afterInstall();
         let shadowRoot = this.initShadowRoot();
         shadowRoot = this.initCssStyle(shadowRoot);
         const rendered = (this as any).render(this.props);
         this.rootNode = diff(null, rendered, null, this);
+        this.rendered();
         if (that.css) {
             shadowRoot.appendChild(cssToDom(typeof that.css === 'function' ? that.css() : that.css));
         }
@@ -57,6 +61,7 @@ export class CustomWebComponent  extends HTMLElement {
         } else {
             this.rootNode && shadowRoot.appendChild(this.rootNode);
         }
+        this.installed();
         this.isInstalled = true;
     }
 
@@ -103,7 +108,6 @@ export class CustomWebComponent  extends HTMLElement {
         const ele: any = this;
         ele.props['css'] = ele.getAttribute('css');
         const attrs = (this.constructor as any).propTypes;
-        console.log(attrs);
         if (!attrs) return;
         Object.keys(attrs).forEach((key: string) => {
             const type = attrs[key];
@@ -141,8 +145,6 @@ export class CustomWebComponent  extends HTMLElement {
                 }
             }
         });
-        console.log(ele);
-        console.log(ele.props);
     }
 
     /**
@@ -342,6 +344,22 @@ export class CustomWebComponent  extends HTMLElement {
      * @private
      */
     public uninstall() {
+
+    }
+
+    public beforeInstall() {
+
+    }
+
+    public install() {
+
+    }
+
+    public afterInstall() {
+
+    }
+
+    public installed() {
 
     }
 }
