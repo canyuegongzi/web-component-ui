@@ -1,2 +1,0 @@
-import typescript from "typescript";
-
