@@ -7,13 +7,12 @@
 
 ### 开发
 
-1. 进入 packages/web-ui；
-2. 执行 ```npm run start:dev```，实时编译组件库；
-3. 进入 example 目录；
-4. 执行 ```npm run webpack:dev```, 进行组件实时预览。
+1. 进入 packages/web-core；
+2. 执行 ```npm run package:start:dev```，实时编译core包；
+3. 进入 example-ui 目录；
+4. 执行 ```npm run dev```, 进行组件demo实时预览。
 
 ### 构建
 
-1. 进入 packages/web-ui；
-2. 执行 ```npm run build:tsc```，构建打包； ；
-3. 执行 ```npm run webpack:dev```, 进行组件实时预览。
+2. 进入 packages/web-core, 执行 ```npm run build:tsc```，构建核心包；
+2. 进入 packages/web-ui, 执行 ```npm run build:package```，构建组件;
