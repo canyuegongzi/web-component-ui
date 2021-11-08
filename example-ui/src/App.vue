@@ -1,12 +1,15 @@
 <script lang="ts">
 import "@canyuegongzi/web-ui/src/packages";
+// import "@canyuegongzi/web-ui/lib/index.esm";
 import ButtonView from "./components/ButtonView.vue"
 import { defineComponent, ref } from "vue";
 import RadioView from "./components/RadioView.vue";
+import IconView from "./components/IconView.vue";
 export default defineComponent({
   components: {
     ButtonView,
-    RadioView
+    RadioView,
+    IconView
   },
   setup(){
     const sonRef = ref(null);
@@ -22,6 +25,7 @@ export default defineComponent({
   <div style="width: 70%">
     <ButtonView />
     <RadioView />
+    <IconView />
   </div>
 
 </template>
