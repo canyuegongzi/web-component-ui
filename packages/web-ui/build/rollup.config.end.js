@@ -1,6 +1,8 @@
 const fs = require('fs');
 const path = require('path');
+const {createDocs} = require("./utils");
 const output = path.resolve(__dirname, "../lib");
+const input = path.resolve(__dirname, "../src/packages");
 
 
 fs.readdirSync(output)
@@ -19,4 +21,22 @@ var css = \`${css}\`
                 )
             }
         })
+        try {
+            fs.exists(`${input}/${name}/fonts`, (data) => {
+                if (data) {
+                    createDocs(`${input}/${name}/fonts`, `${output}/${name}/fonts`)
+                }
+            })
+        } catch (e) {
+            console.log(e);
+        }
     })
+try {
+    fs.exists(`${input}/theme/fonts`, (data) => {
+        if (data) {
+            createDocs(`${input}/theme/fonts`, `${output}/fonts`)
+        }
+    })
+} catch (e) {
+    console.log(e);
+}

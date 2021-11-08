@@ -1,34 +1,25 @@
 # Button
 
-按钮组件
+常用的操作按钮。
 
-## 前置条件
+## 基础用法
 
-t-cli 对 node 最低要求是 v8.0， 最好是 12 以上。
-
-## 安装
-
-```bash
-npm i @canyuegongzi/t-cli - g
-// OR
-yarn add @canyuegongzi/t-cli - g
+::: demo
+```html
+<template>
+    <div style="display: flex; align-items: center;justify-content: space-between;padding: 16px">
+        <wu-button size="mini" type="primary">primary</wu-button>
+        <wu-button size="mini" type="success">success</wu-button>
+        <wu-button size="mini" type="warning">warning</wu-button>
+        <wu-button size="mini" type="danger">danger</wu-button>
+        <wu-button size="mini" type="info">info</wu-button>
+        <wu-button size="mini" type="text">text</wu-button>
+    </div>
+</template>
+<script>
+</script>
 ```
-## 使用
+:::
 
-t-cli 可以通过```t init <project_name> -c <web | server> -t <template_name>  ``` 快速构建出工程模板，其中```-c``` 为工程类型，可选值为 ```web``` 或 ```server```， ```-t``` 为模板名称，可选列表见模板列表。
-
-```bash
-// example:
-t init hello-world -c server -t node-nest
-```
-
-然后需要键入一些基本信息，不输入可以，一路回车即可。
-
-```bash
-? what's your name? dd
-? please enter version? 1.0.0
-? please enter description.
-√ download success
-√ create success
-
-```
+## 禁用状态
+## 文字按钮
