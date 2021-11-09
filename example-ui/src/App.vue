@@ -5,11 +5,13 @@ import ButtonView from "./components/ButtonView.vue"
 import { defineComponent, ref } from "vue";
 import RadioView from "./components/RadioView.vue";
 import IconView from "./components/IconView.vue";
+import InputView from "./components/InputView.vue";
 export default defineComponent({
   components: {
     ButtonView,
     RadioView,
-    IconView
+    IconView,
+    InputView
   },
   setup(){
     const sonRef = ref(null);
@@ -26,6 +28,7 @@ export default defineComponent({
     <ButtonView />
     <RadioView />
     <IconView />
+    <InputView />
   </div>
 
 </template>
