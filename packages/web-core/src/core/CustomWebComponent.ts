@@ -25,6 +25,8 @@ export class CustomWebComponent  extends HTMLElement {
 
     public prevProps: any;
 
+    // public shadowRoot: any;
+
     constructor() {
         super();
         this.props = Object.assign({}, (this.constructor as any).defaultProps, this.props);
@@ -61,6 +63,7 @@ export class CustomWebComponent  extends HTMLElement {
         } else {
             this.rootNode && shadowRoot.appendChild(this.rootNode);
         }
+        // this.shadowRoot = shadowRoot;
         this.installed();
         this.isInstalled = true;
     }

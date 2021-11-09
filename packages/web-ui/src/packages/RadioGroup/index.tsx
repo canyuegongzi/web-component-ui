@@ -33,12 +33,10 @@ export default class WuRadioGroup extends CustomWebComponent {
     }
 
     public installed() {
-        console.log(this.props.name);
         this.radioGroup = this.querySelectorAll(`wu-radio[name='${this.props.name}']`) || [];
         if (this.radioGroup.length === 0) {
             this.radioGroup = this.querySelectorAll(`wu-radio-button[name='${this.props.name}']`) || [];
         }
-        console.log(this.radioGroup);
         this.radioGroup.forEach((ele: WuRadio, index: number) => {
             ele.addEventListener('change', (event: Event) => {
                 this.itemChange(event, ele, index);
