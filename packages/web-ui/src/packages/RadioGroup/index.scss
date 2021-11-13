@@ -4,9 +4,13 @@
 :host {
     display: inline-block;
 }
+::slotted(wu-radio-button) {
+    position: relative;
+}
 @include b(radio-group) {
     display: inline-block;
     line-height: 1;
     vertical-align: middle;
     font-size: 0;
+
 }

@@ -204,7 +204,6 @@ export default class WuInput extends CustomWebComponent {
         } else {
             this.fire('change', this.props.value);
         }
-        console.log('change', evt);
     }
 
     /**
@@ -226,7 +225,6 @@ export default class WuInput extends CustomWebComponent {
             this.valueLength = evt.target.value.length;
             this.update();
         }
-        console.log('input', evt);
     }
 
     /**
@@ -263,7 +261,7 @@ export default class WuInput extends CustomWebComponent {
             <div {
                      ...extractClass(props, 'wu-input',
                          {
-                             [`wu-input--${size}`]: props.size,
+                             [`wu-input-${size}`]: props.size,
                              'is-disabled': this.props.disabled,
                              'wu-input-suffix': suffixIcon,
                              'wu-input-prefix': prefixIcon,
@@ -273,22 +271,23 @@ export default class WuInput extends CustomWebComponent {
                  } onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
 
 
-                {(prefixIcon || suffixIcon) && <this.tempTagName
-                    css={`svg{width: 1em }`}
-                    {
-                        ...extractClass(props, 'o-input__icon',
-                            {
-                                'is-prefix': prefixIcon,
-                                'is-suffix': suffixIcon
-                            }
-                        )
-                    }
+                {
+                    (prefixIcon || suffixIcon) && <this.tempTagName css={`svg{width: 1em }`}
+                        {
+                            ...extractClass(props, 'o-input_icon',
+                                {
+                                    'is-prefix': prefixIcon,
+                                    'is-suffix': suffixIcon
+                                }
+                            )
+                        }
                     // onClick={this.handleIconClick.bind(this)}
-                />}
+                    />
+                }
 
                 <this.tempInputTagName  {...otherProps}
                                          type={type}
-                                         className={`wu-${this.tempInputTagName}__inner`}
+                                         className={`wu-${this.tempInputTagName}_inner`}
                                          autocomplete={autoComplete}
                                          maxLength={props.maxLength}
                                          onChange={this.handleChange}
@@ -296,14 +295,22 @@ export default class WuInput extends CustomWebComponent {
                                          onBlur={this.handleBlur}
                                          onInput={this.handleInput}
                 />
-                {props.clearable &&
-                <svg onClick={this.clearInput} class="wu-icon-clear" fill="currentColor" width="1em" height="1em"
-                     focusable="false" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
-                </svg>}
-                {props.maxLength && <span class="wu-input__count"><span class="wu-input__count-inner">
-                {this.valueLength}/{props.maxLength}
-                </span></span>}
+                {
+                    props.clearable &&
+                    <div class="wu-input_suffix">
+                        <svg onClick={this.clearInput} class="wu-input_clear" fill="currentColor" width="1em" height="1em"
+                             focusable="false" viewBox="0 0 24 24" aria-hidden="true">
+                            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+                        </svg>
+                    </div>
+                }
+                {
+                    props.maxLength && <span class="wu-input_count">
+                        <span class="wu-input_count-inner">
+                            {this.valueLength}/{props.maxLength}
+                        </span>
+                    </span>
+                }
             </div>
         );
     }
