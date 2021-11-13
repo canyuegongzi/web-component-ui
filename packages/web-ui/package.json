@@ -1,6 +1,6 @@
 {
     "name": "@canyuegongzi/web-ui",
-    "version": "1.0.3",
+    "version": "1.0.5",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -36,6 +36,9 @@
         "LICENSE",
         "README.md"
     ],
+    "peerDependencies": {
+        "@canyuegongzi/web-core": "latest"
+    },
     "devDependencies": {
         "@babel/preset-typescript": "^7.13.0",
         "@rollup/plugin-commonjs": "^19.0.2",
@@ -79,7 +82,7 @@
         "vite": "^2.6.13"
     },
     "dependencies": {
-        "css-vars-ponyfill": "^2.4.7",
-        "@canyuegongzi/web-core": "../web-core"
+        "@canyuegongzi/web-core": "^1.0.1",
+        "css-vars-ponyfill": "^2.4.7"
     }
 }

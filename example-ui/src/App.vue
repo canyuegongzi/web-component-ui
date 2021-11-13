@@ -1,5 +1,6 @@
 <script lang="ts">
-import "@canyuegongzi/web-ui/src/packages";
+import "../../packages/web-ui/src/packages/index";
+// import "@canyuegongzi/web-ui/src/packages";
 // import "@canyuegongzi/web-ui/lib/index.esm";
 import ButtonView from "./components/ButtonView.vue"
 import { defineComponent, ref } from "vue";

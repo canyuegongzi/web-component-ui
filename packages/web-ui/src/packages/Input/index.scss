@@ -147,7 +147,9 @@
         text-align: center;
         color: $--input-icon-color;
         transition: all .3s;
-        pointer-events: none;
+        // pointer-events: none;
+        display: flex;
+        align-items: center;
     }
 
     @include e(suffix-inner) {

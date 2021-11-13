@@ -37,6 +37,7 @@ export default class WuRadioGroup extends CustomWebComponent {
         if (this.radioGroup.length === 0) {
             this.radioGroup = this.querySelectorAll(`wu-radio-button[name='${this.props.name}']`) || [];
         }
+        const len = this.radioGroup.length;
         this.radioGroup.forEach((ele: WuRadio, index: number) => {
             ele.addEventListener('change', (event: Event) => {
                 this.itemChange(event, ele, index);
@@ -103,7 +104,7 @@ export default class WuRadioGroup extends CustomWebComponent {
 
     public render() {
         return (
-            <div>
+            <div class="wu-radio-group">
                 <slot/>
             </div>
         );
