@@ -259,9 +259,9 @@ export default class WuInput extends CustomWebComponent {
         this.tempInputTagName = type === 'textarea' ? 'textarea' : 'input';
         return (
             <div {
-                     ...extractClass(props, 'wu-input',
+                     ...extractClass(props, `wu-${this.tempInputTagName}`,
                          {
-                             [`wu-input-${size}`]: props.size,
+                             [`wu-${this.tempInputTagName}-${size}`]: props.size,
                              'is-disabled': this.props.disabled,
                              'wu-input-suffix': suffixIcon,
                              'wu-input-prefix': prefixIcon,
@@ -296,7 +296,7 @@ export default class WuInput extends CustomWebComponent {
                                          onInput={this.handleInput}
                 />
                 {
-                    props.clearable &&
+                    (props.clearable && !props.disabled) &&
                     <div class="wu-input_suffix">
                         <svg onClick={this.clearInput} class="wu-input_clear" fill="currentColor" width="1em" height="1em"
                              focusable="false" viewBox="0 0 24 24" aria-hidden="true">

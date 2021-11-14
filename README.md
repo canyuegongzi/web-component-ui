@@ -4,6 +4,7 @@
 
 1. 执行 ```yarn```；
 2. 执行 ```lerna bootstrap```。
+//https://www.wenjiangs.com/doc/etvtjguo#title-4
 
 ### 开发
 
