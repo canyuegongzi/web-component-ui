@@ -15,6 +15,6 @@
     "vuepress-plugin-demo-container": "^0.2.0"
   },
   "dependencies": {
-    "@canyuegongzi/web-ui": "^1.0.2"
+    "@canyuegongzi/web-ui": "^1.0.6"
   }
 }
