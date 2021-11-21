@@ -1,5 +1,4 @@
 <script lang="ts">
-import "../../packages/web-ui/src/packages/index";
 // import "@canyuegongzi/web-ui/src/packages";
 // import "@canyuegongzi/web-ui/lib/index.esm";
 import ButtonView from "./components/ButtonView.vue"
@@ -7,12 +6,14 @@ import { defineComponent, ref } from "vue";
 import RadioView from "./components/RadioView.vue";
 import IconView from "./components/IconView.vue";
 import InputView from "./components/InputView.vue";
+import TreeView from "./components/TreeView.vue";
 export default defineComponent({
   components: {
     ButtonView,
     RadioView,
     IconView,
-    InputView
+    InputView,
+    TreeView
   },
   setup(){
     const sonRef = ref(null);
@@ -25,14 +26,29 @@ export default defineComponent({
 </script>
 
 <template>
-  <div style="width: 70%">
-    <ButtonView />
-    <RadioView />
-    <IconView />
-    <InputView />
-  </div>
+  <el-container style="height: 100%;">
+    <el-header style="text-align: right; font-size: 12px; height: 32px">
+      Components
+    </el-header>
+    <el-main style="height: calc(100% - 32px)">
+      <el-scrollbar style="height: 100%">
+        <ButtonView></ButtonView>
+        <RadioView></RadioView>
+        <IconView></IconView>
+        <InputView></InputView>
+        <TreeView></TreeView>
+      </el-scrollbar>
+
+    </el-main>
+  </el-container>
 
 </template>
 <style>
-
+html, body {
+  height: 100%;
+  margin: 0;
+}
+#app{
+  height: 100%;
+}
 </style>

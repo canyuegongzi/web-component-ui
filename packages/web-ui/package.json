@@ -1,6 +1,6 @@
 {
     "name": "@canyuegongzi/web-ui",
-    "version": "1.0.5",
+    "version": "1.0.6",
     "description": "> TODO: description",
     "author": "Marvin <yongfeide123@gmail.com>",
     "homepage": "",
@@ -82,7 +82,7 @@
         "vite": "^2.6.13"
     },
     "dependencies": {
-        "@canyuegongzi/web-core": "^1.0.1",
+        "@canyuegongzi/web-core": "../web-core",
         "css-vars-ponyfill": "^2.4.7"
     }
 }
