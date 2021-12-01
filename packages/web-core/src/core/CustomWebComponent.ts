@@ -27,11 +27,22 @@ export class CustomWebComponent  extends HTMLElement {
 
     // public shadowRoot: any;
 
+    static get observedAttributes() {
+        return (this.constructor as any).observedAttrList || [];
+    }
     constructor() {
         super();
         this.props = Object.assign({}, (this.constructor as any).defaultProps, this.props);
         this.computed = {};
         this.isInstalled = false;
+    }
+
+    /**
+     * 属性变化
+     */
+    public attributeChangedCallback() {
+        console.log('11111');
+        this.update(true);
     }
 
     /***
