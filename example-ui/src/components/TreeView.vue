@@ -1,5 +1,6 @@
 <script lang="ts">
-import {TreeNode} from "../../../packages/web-ui/src/packages/TreeNode";
+
+import {TreeNode} from "@canyuegongzi/web-ui/types/TreeNode";
 
 export default {
   name: 'TreeView',

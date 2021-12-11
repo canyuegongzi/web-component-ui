@@ -51,7 +51,7 @@ export default class WuTree extends CustomWebComponent {
                     props.data.map(item => {
                         console.log(item);
                         return (
-                            <wu-tree-node node={item } showCheckbox={props.showCheckbox} />
+                            <wu-tree-node treeNode={{ ...item } } showCheckbox={props.showCheckbox} />
                         );
                     })
 

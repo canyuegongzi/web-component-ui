@@ -1,4 +1,5 @@
 import { CustomWebComponent, UISize } from "@canyuegongzi/web-core";
+export const css: any;
 interface Props {
     size?: UISize;
     type?: 'primary' | 'success' | 'warning' | 'danger' | 'info' | 'text';
@@ -12,7 +13,9 @@ interface Props {
     text?: string;
 }
 export default class WuButton extends CustomWebComponent {
-    static css: any;
+    static css: typeof css | {
+        readonly [key: string]: string;
+    };
     static defaultProps: {
         size: string;
         plain: boolean;

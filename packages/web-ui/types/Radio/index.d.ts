@@ -1,4 +1,5 @@
 import { CustomWebComponent, UISize } from "@canyuegongzi/web-core";
+export const css: any;
 interface Props {
     size?: UISize;
     label?: string;
@@ -9,7 +10,9 @@ interface Props {
     border?: boolean;
 }
 export default class WuRadio extends CustomWebComponent {
-    static css: any;
+    static css: typeof css | {
+        readonly [key: string]: string;
+    };
     static propTypes: {
         size: StringConstructor;
         label: StringConstructor;
@@ -28,10 +31,6 @@ export default class WuRadio extends CustomWebComponent {
     };
     isChecked: boolean | undefined;
     constructor();
-    /**
-     * 点击事件
-     * @private
-     */
     private clickHandler;
     installed(): void;
     render(props: Props): any;

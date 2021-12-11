@@ -28,7 +28,7 @@ export class CustomWebComponent  extends HTMLElement {
     // public shadowRoot: any;
 
     static get observedAttributes() {
-        return (this.constructor as any).observedAttrList || [];
+        return (this as any).observedAttrs || [];
     }
     constructor() {
         super();
@@ -41,7 +41,6 @@ export class CustomWebComponent  extends HTMLElement {
      * 属性变化
      */
     public attributeChangedCallback() {
-        console.log('11111');
         this.update(true);
     }
 

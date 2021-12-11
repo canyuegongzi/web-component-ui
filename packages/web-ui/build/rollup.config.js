@@ -19,7 +19,9 @@ const config = readdirSync(input)
       typescript({
         tsconfigOverride: {
           compilerOptions: {
-            declaration: false
+            experimentalDecorators: true,
+            declaration: false,
+            target: "esnext",
           },
           include: [`src/packages/${name}/*`],
           exclude: ["node_modules", "examples", "mobile", "tests"]
@@ -27,7 +29,9 @@ const config = readdirSync(input)
         abortOnError: false,
         clean: true
       }),
-      commonjs(),
+      commonjs({
+
+      }),
     ],
     output: {
       name: "index",
@@ -44,6 +48,7 @@ config.push({
     typescript({
       tsconfigOverride: {
         compilerOptions: {
+          experimentalDecorators: true,
           declaration: false
         },
         include: [`src/packages/**/*`],

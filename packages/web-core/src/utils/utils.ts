@@ -14,7 +14,7 @@
  * this.constructor so that the native HTMLElement constructor can access the
  * current under-construction element's definition.
  */
-/*;(function() {
+;(function() {
     if (
         // No Reflect, no classes, no need for shim because native custom elements
         // require ES2015 classes or Reflect.
@@ -34,7 +34,7 @@
     HTMLElement.prototype = BuiltInHTMLElement.prototype;
     HTMLElement.prototype.constructor = HTMLElement;
     Object.setPrototypeOf(HTMLElement, BuiltInHTMLElement);
-})();*/
+})();
 
 export function cssToDom(css: string) {
     const node = document.createElement('style');

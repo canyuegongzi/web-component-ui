@@ -1,6 +1,4 @@
 <script lang="ts">
-// import "@canyuegongzi/web-ui/src/packages";
-// import "@canyuegongzi/web-ui/lib/index.esm";
 import ButtonView from "./components/ButtonView.vue"
 import { defineComponent, ref } from "vue";
 import RadioView from "./components/RadioView.vue";
@@ -18,7 +16,6 @@ export default defineComponent({
   setup(){
     const sonRef = ref(null);
     const handleClick = () => {
-      sonRef.value.song();
     }
     return { sonRef, handleClick, }
   }
