@@ -5,9 +5,9 @@ import { h } from "./vNode/h";
 import { Fragment } from "./utils/utils";
 import { classNames, extractClass } from "./class";
 import { WebUiConfig } from "./webOptions";
-import { UISize } from './type';
+// import { UISize } from './instance';
 (h as any).f = Fragment ;
-
+type UISize = 'medium' | 'small' | 'mini';
 export {
     UISize,
     define,

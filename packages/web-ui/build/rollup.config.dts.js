@@ -21,6 +21,10 @@ const config = [
       typescript({
             useTsconfigDeclarationDir: false,
             tsconfigOverride: {
+                compilerOptions: {
+                    declaration: true,
+                    experimentalDecorators: true
+                },
                 include: ["src/packages/**/*"],
                 exclude: ["node_modules", "examples", "mobile", "tests"]
             },

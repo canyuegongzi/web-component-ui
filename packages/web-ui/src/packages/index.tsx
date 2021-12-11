@@ -5,6 +5,7 @@ import WuRadioButton from "./RadioButton";
 import WuIcon from "./Icon";
 import WuInput from "./Input";
 import WuTree from "./Tree";
+import WuTreeNode from './TreeNode';
 export {
     WuRadio,
     WuRadioGroup,
@@ -12,7 +13,8 @@ export {
     WuButton,
     WuIcon,
     WuInput,
-    WuTree
+    WuTree,
+    WuTreeNode
 };
 export default {
     WuRadio,
@@ -21,5 +23,6 @@ export default {
     WuButton,
     WuIcon,
     WuInput,
-    WuTree
+    WuTree,
+    WuTreeNode
 };

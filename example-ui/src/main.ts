@@ -1,7 +1,10 @@
 import { createApp } from 'vue'
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
-import "../../packages/web-ui/src/packages/index";
+// 測試發佈的包
+import "@canyuegongzi/web-ui";
+// 开发环境中实时预览
+// import "../../packages/web-ui/src/packages/index"
 import App from './App.vue'
 import router from "./router";
 

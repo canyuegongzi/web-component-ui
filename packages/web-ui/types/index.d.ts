@@ -4,7 +4,9 @@ import WuRadioGroup from "./RadioGroup";
 import WuRadioButton from "./RadioButton";
 import WuIcon from "./Icon";
 import WuInput from "./Input";
-export { WuRadio, WuRadioGroup, WuRadioButton, WuButton, WuIcon, WuInput };
+import WuTree from "./Tree";
+import WuTreeNode from './TreeNode';
+export { WuRadio, WuRadioGroup, WuRadioButton, WuButton, WuIcon, WuInput, WuTree, WuTreeNode };
 declare const _default: {
     WuRadio: typeof WuRadio;
     WuRadioGroup: typeof WuRadioGroup;
@@ -12,5 +14,7 @@ declare const _default: {
     WuButton: typeof WuButton;
     WuIcon: typeof WuIcon;
     WuInput: typeof WuInput;
+    WuTree: typeof WuTree;
+    WuTreeNode: typeof WuTreeNode;
 };
 export default _default;

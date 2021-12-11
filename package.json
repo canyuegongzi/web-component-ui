@@ -1,9 +1,11 @@
 {
   "name": "root",
   "private": true,
-  "scripts": {},
   "publishConfig": {
     "access": "public"
+  },
+  "scripts": {
+    "install:all": "npm install && cd example-ui && npm install && cd packages/web-core && npm install && cd packages/web-ui && npm install"
   },
   "engines": {
     "node": ">= 10",
@@ -12,7 +14,7 @@
   "files": [
     "dist",
     "LICENSE",
-    "README.md"
+    "readme.md"
   ],
   "devDependencies": {
     "lerna": "^4.0.0",
