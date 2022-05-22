@@ -1,5 +1,13 @@
 ## 前言
 
+### 注意
+
+该仓库已经停止维护，功能已经全部迁移到 [web-component-plus](https://github.com/canyuegongzi/web-component-plus)
+该仓库已经停止维护，功能已经全部迁移到 [web-component-plus](https://github.com/canyuegongzi/web-component-plus)
+该仓库已经停止维护，功能已经全部迁移到 [web-component-plus](https://github.com/canyuegongzi/web-component-plus)
+该仓库已经停止维护，功能已经全部迁移到 [web-component-plus](https://github.com/canyuegongzi/web-component-plus)
+该仓库已经停止维护，功能已经全部迁移到 [web-component-plus](https://github.com/canyuegongzi/web-component-plus)
+
 WebComponent 方式是实现组件化的一种解决方案，目前社区内也有很多成熟对方案，如 [Omi](https://github.com/Tencent/omi) 、[stencil](https://github.com/ionic-team/stencil) ， 其中腾讯前端团队的 [Omi](https://github.com/Tencent/omi) 方案还是相当完善的，这篇文章博主打算在 [Omi](https://github.com/Tencent/omi) 方案的基础上进行二次开发并将 elementUI 框架 WebComponent 化。
 
 应用场景案例：
